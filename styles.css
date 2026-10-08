@@ -178,7 +178,7 @@ address .ref{display:inline-block;margin-top:8px;font-weight:800}
 /* footer */
 .footer{background:#000;color:#fff;padding:40px 0 24px}
 .footer__in{display:flex;flex-direction:column;gap:24px;align-items:flex-start}
-.footer__logo{width:120px;height:auto;background:var(--creme);padding:10px}
+.footer__logo{width:150px;height:auto}
 .footer__info p{margin:0 0 6px}
 .footer__info a{text-underline-offset:4px}
 .footer .lema{margin-top:12px;color:var(--amarelo);font-weight:800}
@@ -232,3 +232,23 @@ address .ref{display:inline-block;margin-top:8px;font-weight:800}
   .footer__in{flex-direction:row;align-items:center;gap:48px}
 }
 .hint{display:block;color:var(--amarelo);font-weight:800}@media (min-width:900px){.hint{display:none}}
+
+.band__foto--kb{object-position:center 78%}
+.profs-foto{margin:0 0 24px;max-width:420px;transform:rotate(-1.2deg)}
+.profs-foto img{width:100%;height:auto;border:5px solid #fff;box-shadow:5px 5px 0 #0004;outline:3px solid #000}
+.profs-foto[hidden]{display:none}
+@media (min-width:720px){.band-row--foto .band__foto{aspect-ratio:1/1}}
+@media (min-width:720px) and (max-width:899px){
+  .hero__grid{grid-template-columns:1fr 1fr;align-items:center}
+  .hero h1{font-size:clamp(2.8rem,8vw,4rem)}
+  .hero__btns{flex-direction:column;align-items:stretch}
+  .nav.open{align-items:stretch}
+}
+@media (min-width:900px){
+  .profs-layout{display:grid;grid-template-columns:minmax(0,380px) 1fr;gap:40px;align-items:center}
+  .profs-foto{margin:0}
+  .profs{grid-template-columns:1fr}
+}
+@media (min-width:1400px){:root{--max:1200px}body{font-size:18px}}
+@media (hover:none){.btn:hover{transform:none;box-shadow:none}}
+.btn,.seg__btn,.band__link,.nav a,.burger{min-height:44px}

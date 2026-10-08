@@ -36,9 +36,14 @@
     b.innerHTML = html;
     if (m.foto) {
       var img = el("img", "band__foto");
-      img.src = "assets/" + m.foto + (m.foto === "kettlebells" ? "-480" : "-640") + ".webp";
+      var kb = m.foto === "kettlebells";
+      img.src = "assets/" + m.foto + (kb ? "-765" : "-1000") + ".webp";
+      img.srcset = kb ? "assets/kettlebells-480.webp 480w, assets/kettlebells-765.webp 765w"
+                      : "assets/treino-amplo-640.webp 640w, assets/treino-amplo-1000.webp 1000w, assets/treino-amplo-1360.webp 1360w";
+      img.sizes = "(min-width: 720px) 300px, 70vw";
       img.alt = m.fotoAlt || ""; img.loading = "lazy";
-      img.width = m.foto === "kettlebells" ? 480 : 640; img.height = m.foto === "kettlebells" ? 640 : 480;
+      img.width = kb ? 765 : 1000; img.height = kb ? 1020 : 750;
+      if (kb) img.classList.add("band__foto--kb");
       row.appendChild(img);
     }
     row.appendChild(b);
@@ -122,11 +127,20 @@
 
   /* Professores */
   var profs = $("#profs");
+  if (C.professoresFoto && C.professoresFoto.arquivo) {
+    var fig = $("#profs-foto");
+    fig.hidden = false;
+    var im = fig.querySelector("img");
+    im.src = "assets/" + C.professoresFoto.arquivo + "-640.webp";
+    im.srcset = "assets/" + C.professoresFoto.arquivo + "-480.webp 480w, assets/" + C.professoresFoto.arquivo + "-640.webp 640w";
+    im.alt = C.professoresFoto.alt;
+  }
   C.professores.forEach(function (p) {
     var ini = p.nome.split(/\s+/).map(function (w) { return w[0]; }).slice(0, 2).join("").toUpperCase();
     var c = el("article", "prof");
     var pic = p.foto ? '<img src="' + esc(p.foto) + '" width="240" height="240" alt="Foto de ' + esc(p.nome) + '" loading="lazy">' : '<span aria-hidden="true">' + ini + "</span>";
-    c.innerHTML = '<div class="prof__pic' + (p.foto ? "" : " prof__pic--ph") + '">' + pic + "</div>" +
+    var hasDuo = C.professoresFoto && C.professoresFoto.arquivo;
+    c.innerHTML = (p.foto || !hasDuo ? '<div class="prof__pic' + (p.foto ? "" : " prof__pic--ph") + '">' + pic + "</div>" : "") +
       "<h3>" + esc(p.nome) + '</h3><p class="prof__role">Professor(a)</p>' +
       (p.bio ? '<p class="prof__bio">' + esc(p.bio) + "</p>" : "") +
       '<a class="btn btn--ghost btn--sm" href="' + ig(p.instagram) + '" target="_blank" rel="noopener" aria-label="Instagram de ' + esc(p.nome) + '">Instagram @' + esc(p.instagram) + "</a>";

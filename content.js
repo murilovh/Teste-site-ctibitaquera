@@ -86,6 +86,8 @@ window.CONTENT = {
   // ---------- PROFESSORES ----------
   // TODO: o dono ainda não enviou foto nem bio. Quando tiver, preencha "foto" (ex.: "assets/lorenzo.webp")
   // e "bio". Se ficarem vazios, o site mostra as iniciais e esconde a bio. Não invente formação/CREF.
+  // Foto dos dois juntos (arquivos assets/<arquivo>-480.webp e -640.webp). Deixe "" para esconder.
+  professoresFoto: { arquivo: "professores", alt: "Lorenzo Perna e Bruna Hoffmann, professores do CT Ibiraquera, de braços cruzados e sorrindo no salão" },
   professores: [
     { nome: "Lorenzo Perna", instagram: "lorenzoperna", foto: "", bio: "" },
     { nome: "Bruna Hoffmann", instagram: "bruhoffmann", foto: "", bio: "" }

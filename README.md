@@ -13,7 +13,7 @@ Site estático (HTML + CSS + JS puro), sem build. Objetivo único: levar a pesso
 Abra `content.js` e altere só os textos entre aspas:
 - **Preços**: `planos.lista` (valores mensais para 2x, 3x e 5x) e `planos.ferias.itens`.
 - **Horários**: `horarios.dias` e o rótulo `horarios.rotulo` (ex.: "Horários outono-inverno").
-- **Professores**: `professores`. Preencha `foto` (ex.: `"assets/lorenzo.webp"`) e `bio` quando tiver; vazios, o site mostra as iniciais e esconde a bio.
+- **Professores**: `professores` e `professoresFoto`. Preencha `foto` (ex.: `"assets/lorenzo.webp"`) e `bio` quando tiver; vazios, o site mostra as iniciais e esconde a bio.
 - **WhatsApp, Instagram, endereço, Maps**: `contato`.
 - **Personal / Massagem**: `modalidades` (mensagem pré-preenchida do WhatsApp em `mensagem`).
 
@@ -32,7 +32,7 @@ Não há build. Em Vercel, Netlify ou Cloudflare Pages: importe este repositóri
 *output directory* como a raiz (`/`).
 
 ## Pendências
-- Foto e bio dos professores (placeholders com iniciais).
+- Bio de cada professor e foto individual (hoje há uma foto dos dois juntos, em `professoresFoto` no `content.js`; para trocar, substitua `assets/professores-480.webp` e `-640.webp`).
 - Preços de Personal e Massagem (hoje: "Valores e agenda pelo WhatsApp").
 - `assets/treino-mural-*.webp` é um recorte da foto `treino-amplo` (a foto original do mural não foi enviada).
 - A foto da fachada mostra a placa "Treinamento Integrado" (símbolo diferente da logo atual); veja o comentário em `index.html`.
